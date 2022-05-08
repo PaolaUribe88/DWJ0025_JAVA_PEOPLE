@@ -8,7 +8,7 @@
 -	Entregar un reporte de las calificaciones de un estudiante con su promedio
 -	Entregar un reporte de las calificaciones en una asignatura seleccionada
 ## Se pide:
-### a)	Crear un proyecto Java EE, con sus módulos war y ejb
+### a)	Crear un proyecto Java EE, con sus módulos war
 ### b)	En el módulo ejb:
 -	Crear proyecto JEE con módulos war 
 -	Crear session bean stateful, stateless o singleton
