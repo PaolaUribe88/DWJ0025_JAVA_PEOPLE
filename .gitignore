@@ -1,4 +1,3 @@
 .settings
-build/classes
+/build/
 .classpath
-.project
