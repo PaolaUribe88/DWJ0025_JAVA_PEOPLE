@@ -1,0 +1,16 @@
+CREATE TABLE estudiante
+	(id serial PRIMARY KEY,
+	nombre char(20), 
+	rut serial, 
+	digito_v char(1),
+	genero char (20), 
+	telefono serial);
+CREATE TABLE asignatura
+	(id serial PRIMARY KEY,
+	nombre char(20));
+CREATE TABLE calificacion
+	(numero_evaluacion serial PRIMARY KEY,
+	id serial,
+	nota char(10),
+	estudiante_id int REFERENCES estudiante(id),
+	asignatura_id int REFERENCES calificacion (id));
