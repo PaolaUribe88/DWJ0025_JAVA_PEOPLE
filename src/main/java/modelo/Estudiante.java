@@ -7,13 +7,25 @@ public class Estudiante {
 	private String digitoV;
 	private String genero;
 	private int telefono;
+	private String curso;
 	
 	//CONSTRUCTOR VACIO
 	public Estudiante() {
 		super();
 	}
+	//CONSTRUCTOR SIN ID
+	public Estudiante(String nombre, int rut, String digitoV, String genero, int telefono, String curso) {
+		super();
+		this.nombre = nombre;
+		this.rut = rut;
+		this.digitoV = digitoV;
+		this.genero = genero;
+		this.telefono = telefono;
+		this.curso = curso;
+	}
+
 	//CONSTRUCTOR COMPLETO
-	public Estudiante(int id, String nombre, int rut, String digitoV, String genero, int telefono) {
+	public Estudiante(int id, String nombre, int rut, String digitoV, String genero, int telefono, String curso) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -21,6 +33,7 @@ public class Estudiante {
 		this.digitoV = digitoV;
 		this.genero = genero;
 		this.telefono = telefono;
+		this.curso = curso;
 	}
 	//GETTER AND SETTER
 	public int getId() {
@@ -59,5 +72,12 @@ public class Estudiante {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+	public String getCurso() {
+		return curso;
+	}
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+	
 
 }

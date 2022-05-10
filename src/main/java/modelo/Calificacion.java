@@ -3,20 +3,28 @@ package modelo;
 public class Calificacion {
 	private int numeroEvaluacion;
 	private String nota;
-	private Estudiante estudiante_id;
-	private Asignatura asignatura_id;
+	private Estudiante estudiante;
+	private Asignatura asignatura;
 	
 	//CONSTRUCTOR VACIO
 	public Calificacion() {
 		super();
 	}
+	//CONSTRUCTOR SIN ID
+	public Calificacion(String nota, Estudiante estudiante, Asignatura asignatura) {
+		super();
+		this.nota = nota;
+		this.estudiante = estudiante;
+		this.asignatura = asignatura;
+	}
+
 	//CONSTRUCTOR COMPLETO
-	public Calificacion(int numeroEvaluacion, String nota, Estudiante estudiante_id, Asignatura asignatura_id) {
+	public Calificacion(int numeroEvaluacion, String nota, Estudiante estudiante, Asignatura asignatura) {
 		super();
 		this.numeroEvaluacion = numeroEvaluacion;
 		this.nota = nota;
-		this.estudiante_id = estudiante_id;
-		this.asignatura_id = asignatura_id;
+		this.estudiante = estudiante;
+		this.asignatura = asignatura;
 	}
 	//GETTER AND SETTER
 	public int getNumeroEvaluacion() {
@@ -31,17 +39,17 @@ public class Calificacion {
 	public void setNota(String nota) {
 		this.nota = nota;
 	}
-	public Estudiante getEstudiante_id() {
-		return estudiante_id;
+	public Estudiante getEstudiante() {
+		return estudiante;
 	}
-	public void setEstudiante_id(Estudiante estudiante_id) {
-		this.estudiante_id = estudiante_id;
+	public void setEstudiante(Estudiante estudiante) {
+		this.estudiante = estudiante;
 	}
-	public Asignatura getAsignatura_id() {
-		return asignatura_id;
+	public Asignatura getAsignatura() {
+		return asignatura;
 	}
-	public void setAsignatura_id(Asignatura asignatura_id) {
-		this.asignatura_id = asignatura_id;
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
 	}
 	
 }

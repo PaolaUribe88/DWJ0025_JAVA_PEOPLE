@@ -9,15 +9,11 @@ import modelo.Estudiante;
 
 public interface EstudianteDAO {
 	
-	public List<Estudiante> findAllEstudiante() throws SQLException, NamingException;
-	public Estudiante findEstudianteById(int id) throws SQLException, NamingException;
-	public void crearEstudiante () throws SQLException, NamingException;
-	public void editarEstudiante ()throws SQLException, NamingException;
-	public void eliminarEstudiante()throws SQLException, NamingException;
-	
-	public static void eliminarEstudiante(int estudianteID) {
-		// TODO Auto-generated method stub
-		
-	}
+	public List<Estudiante> findAllEstudiante()throws SQLException, NamingException;
+	public Estudiante findEstudianteById(int estudianteId)throws SQLException, NamingException;
+	public void crearEstudiante (Estudiante estudiante)throws SQLException, NamingException;
+	public void editarEstudiante (Estudiante estudiante)throws SQLException, NamingException;
+	public void eliminarEstudiante(int id)throws SQLException, NamingException;
+	public Estudiante findLastCreatedEstudiante()throws SQLException, NamingException;
 	
 }

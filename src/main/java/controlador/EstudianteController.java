@@ -4,14 +4,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Estudiante;
+
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.naming.NamingException;
 
 import daoService.AsignaturaDAO;
 import daoService.CalificacionDAO;
 import daoService.EstudianteDAO;
+import daoService.EstudianteDAOImp;
 
 /**
  * Servlet implementation class EstudianteController
@@ -26,6 +30,12 @@ public class EstudianteController extends HttpServlet {
     public EstudianteController() {
     
     }
+    
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		this.estudianteDAO = new EstudianteDAOImp();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String accion = request.getParameter("accion") == null ? "" : request.getParameter("accion");
@@ -34,7 +44,7 @@ public class EstudianteController extends HttpServlet {
 		case "eliminar":
 			try {
 			int estudianteID = Integer.parseInt(request.getParameter("id"));
-			EstudianteDAO.eliminarEstudiante(estudianteID);
+			estudianteDAO.eliminarEstudiante(estudianteID);
 			response.sendRedirect("/JAVA-PEOPLE/EstudianteController?accion=listar");
 		}catch(SQLException sql) {
 			sql.printStackTrace();
@@ -44,7 +54,46 @@ public class EstudianteController extends HttpServlet {
 			response.sendError(500);
 		}
 			break;
-		case "modificar";	
+		case "modificar":
+		try {
+			int estuanteId = Integer.parseInt(request.getParameter("id"));
+			Estudiante estudiante = estudianteDAO.findEstudianteById(estuanteId);
+			request.setAttribute("estudiante", estudiante);
+			vistaJSP ="WEB-INF/jsp/vista/estudiante/estudiante-form.jsp";
+			request.getRequestDispatcher(vistaJSP).forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			response.sendError(404);
+			
+		} catch (NamingException e) {
+			e.printStackTrace();
+			response.sendError(500);
+		}
+		break;
+		case "form":
+			vistaJSP ="WEB-INF/jsp/vista/estudiante/estudiante-form.jsp";
+			request.getRequestDispatcher(vistaJSP);
+			try {
+				
+			} catch (SQLException | NamingException e) {
+				e.printStackTrace();
+				response.sendError(500);
+				return;
+			}
+			request.getRequestDispatcher(vistaJSP).forward(request, response);
+			break;
+		case "listar":
+			List<Estudiante> estudiantes = null;
+			try {
+				estudiantes = estudianteDAO.findAllEstudiante();
+			} catch (SQLException | NamingException e) {
+				e.printStackTrace();
+				response.sendError(500);
+				return;
+			}
+			request.setAttribute("estudiantes", estudiantes);
+			request.getRequestDispatcher("/WEB-INF/jsp/vista/estudiante/estudiante-listar.jsp").forward(request, response);
+			break;
 		}
 	}
 

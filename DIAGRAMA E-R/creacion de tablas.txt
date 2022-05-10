@@ -10,7 +10,6 @@ CREATE TABLE asignatura
 	nombre char(20));
 CREATE TABLE calificacion
 	(numero_evaluacion serial PRIMARY KEY,
-	id serial,
 	nota char(10),
 	estudiante_id int REFERENCES estudiante(id),
 	asignatura_id int REFERENCES calificacion (id));

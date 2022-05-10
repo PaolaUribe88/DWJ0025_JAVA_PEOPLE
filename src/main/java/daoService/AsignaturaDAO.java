@@ -10,9 +10,9 @@ import modelo.Asignatura;
 public interface AsignaturaDAO {
 
 	public List<Asignatura> findAllAsignatura()throws SQLException, NamingException;
-	public Asignatura findAsignaturaById()throws SQLException, NamingException;
-	public void crearAsignatura () throws SQLException, NamingException;
-	public void editarAsigantura ()throws SQLException, NamingException;
-	public void eliminarAsignatura() throws SQLException, NamingException;
+	public Asignatura findAsignaturaById(int Id)throws SQLException, NamingException;
+	public void crearAsignatura (Asignatura asignatura) throws SQLException, NamingException;
+	public void editarAsigantura (Asignatura asignatura)throws SQLException, NamingException;
+	public void eliminarAsignatura(int id) throws SQLException, NamingException;
 	public Asignatura findLastCreatedAsignatura()throws SQLException, NamingException;
 }
