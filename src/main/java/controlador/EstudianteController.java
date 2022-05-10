@@ -13,9 +13,6 @@ import daoService.AsignaturaDAO;
 import daoService.CalificacionDAO;
 import daoService.EstudianteDAO;
 
-/**
- * Servlet implementation class EstudianteController
- */
 public class EstudianteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
