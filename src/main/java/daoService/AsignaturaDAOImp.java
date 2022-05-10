@@ -57,7 +57,7 @@ public class AsignaturaDAOImp implements AsignaturaDAO {
 	public void crearAsignatura(Asignatura asignatura) throws SQLException, NamingException {
 		try (Connection conn = DbUtils.getConexion();
 				PreparedStatement decprep = conn.prepareStatement(
-						"INSERT INTO asignatura(id ,rnombre) VALUES (?,?)");
+						"INSERT INTO asignatura(id ,nombre) VALUES (?,?)");
 
 		) {
 
