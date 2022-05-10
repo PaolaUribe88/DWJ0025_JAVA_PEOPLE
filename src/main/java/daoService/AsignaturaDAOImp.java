@@ -17,8 +17,8 @@ public class AsignaturaDAOImp implements AsignaturaDAO {
 	@Override
 	public List<Asignatura> findAllAsignatura() throws SQLException, NamingException {
 		try(
-				Connection conn = DbUtils.getConexion();
-				Statement st = conn.createStatement();
+				Connection conexion = DbUtils.getConexion();
+				Statement st = conexion.createStatement();
 			) {
 			ResultSet rs = st.executeQuery("SELECT * FROM asignatura");
 			List<Asignatura> asignaturas = new ArrayList<>();
@@ -44,8 +44,8 @@ public class AsignaturaDAOImp implements AsignaturaDAO {
 		
 				ResultSet rs = declaracion.executeQuery();
 				if(rs.next()) {
-					int id = rs.getInt("id");
-					String nombre = rs.getString("nombre");
+					int id 		= rs.getInt("id");
+					String nombre   = rs.getString("nombre");
 					return new Asignatura(id, nombre);
 				}else {
 					return null;
@@ -55,8 +55,8 @@ public class AsignaturaDAOImp implements AsignaturaDAO {
 
 	@Override
 	public void crearAsignatura(Asignatura asignatura) throws SQLException, NamingException {
-		try (Connection conn = DbUtils.getConexion();
-				PreparedStatement decprep = conn.prepareStatement(
+		try (Connection conexion = DbUtils.getConexion();
+				PreparedStatement decprep = conexion.prepareStatement(
 						"INSERT INTO asignatura(id ,nombre) VALUES (?,?)");
 
 		) {
