@@ -15,4 +15,9 @@ public interface EstudianteDAO {
 	public void editarEstudiante ()throws SQLException, NamingException;
 	public void eliminarEstudiante()throws SQLException, NamingException;
 	
+	public static void eliminarEstudiante(int estudianteID) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
